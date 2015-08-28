@@ -37,5 +37,13 @@ public class AppTest extends FluentTest{
 		assertThat(pageSource()).contains("Becky");
 	}
 
+	@Test
+	public void categoryIsDeleted() {
+		Stylist myStylist = new Stylist("Becky");
+		myStylist.save();
+		String stylistPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
+		submit(".btn-danger");
+		assertThat(pageSource()).doesNotContain("Becky");
+	}
 
 }
