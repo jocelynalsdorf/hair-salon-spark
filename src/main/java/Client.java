@@ -40,7 +40,7 @@ public class Client {
 	public static List<Client> all() {
 		String sql = "SELECT id, description, stylist_Id FROM clients";
 		try(Connection con = DB.sql2o.open()) {
-		return con.createQuery(sql).executeAndFetch(Client.class);
+			return con.createQuery(sql).executeAndFetch(Client.class);
 		}
 	}
 
@@ -83,5 +83,5 @@ public class Client {
 			.executeUpdate();
 		}
 	}
-	
+
 }//end of client class
