@@ -1,5 +1,5 @@
-	import java.util.List;
-	import org.sql2o.*;
+import java.util.List;
+import org.sql2o.*;
 
 
 public class Client {
@@ -48,10 +48,10 @@ public class Client {
 		try(Connection con = DB.sql2o.open()) {
 			String sql = "INSERT INTO clients (description, stylist_Id) VALUES (:description, :stylist_Id)";
 			this.id = (int) con.createQuery(sql, true)
-				.addParameter("description", this.description)
-				.addParameter("stylist_Id", this.stylist_Id)
-				.executeUpdate()
-				.getKey();
+			.addParameter("description", this.description)
+			.addParameter("stylist_Id", this.stylist_Id)
+			.executeUpdate()
+			.getKey();
 		}
 	}
 
@@ -59,9 +59,9 @@ public class Client {
 		try(Connection con = DB.sql2o.open()) {
 			String sql = "SELECT * FROM clients where id=:id";
 			Client client = con.createQuery(sql)
-				.addParameter("id", id)
-				.executeAndFetchFirst(Client.class);
-				return client;
+			.addParameter("id", id)
+			.executeAndFetchFirst(Client.class);
+			return client;
 		}
 	}
 
