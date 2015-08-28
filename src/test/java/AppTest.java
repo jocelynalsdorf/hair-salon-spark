@@ -1,5 +1,5 @@
 import org.fluentlenium.adapter.FluentTest;
-iimport org.fluentlenium.adapter.FluentTest;
+import org.fluentlenium.adapter.FluentTest;
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
