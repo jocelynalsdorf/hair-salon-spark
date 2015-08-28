@@ -109,7 +109,7 @@ public class AppTest extends FluentTest{
 		firstClient.save();
 		String stylistPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
 		goTo(stylistPath);
-		click("a", withText("EDIT"));
+		click("a", withText("Edit Client"));
 		fill("#description").with("tony");
 		submit(".btn-success");
 		click("a", withText("mable"));

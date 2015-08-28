@@ -8,14 +8,29 @@
 }
 body {
 	font-size: 17px;
-
+	background-color: #BCD4DE;
 }
+
+.well {
+	background-color: whitesmoke;
+}
+.btn-success {
+	background-color: #add283;
+	border-color: #90c551;
+}
+
+.btn-danger {
+	background-color: #e46d59;
+	border-color: #e46d59;
+}
+
 h1 {
 	font-family: 'Pacifico', cursive;
 	text-align: center;
 	padding-bottom: 10px;
 	font-size: 50px;
 	padding-top: 10px;
+	color: #607d8b;
 }
 
 h2 {
@@ -23,6 +38,7 @@ h2 {
 	font-family: 'Pacifico', cursive;
 	padding-bottom: 9px;
 	margin-top:10px;
+	color: #607d8b;
 }
 
 h3 {
@@ -30,6 +46,7 @@ h3 {
 	margin-top: 11px;
 	margin-bottom: 15px;
 	font-size: 28px;
+	color: #607d8b;
 }
 
 span.edit-link {

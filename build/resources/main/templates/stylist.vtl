@@ -9,9 +9,9 @@
 			#foreach ($client in $stylist.getClients())
 			  <li><span class="client-name">$client.getDescription()</span></li>
 			  <form action="/$stylist.getId()/clients/$client.getId()/delete" method="post">
-			    <button type="submit" class="btn btn-danger $client.getDescription()">DELETE</button>
+			    <button type="submit" class="btn btn-danger $client.getDescription()">Delete Client</button>
 			  </form>
-			  <span class="edit-link"><a href="/$stylist.getId()/clients/$client.getId()/update">EDIT</a></span>
+			  <span class="edit-link"><a href="/$stylist.getId()/clients/$client.getId()/update">Edit Client</a></span>
 			#end
 			</ol>
 		</div>
