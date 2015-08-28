@@ -42,8 +42,36 @@ public class AppTest extends FluentTest{
 		Stylist myStylist = new Stylist("Becky");
 		myStylist.save();
 		String stylistPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
+		goTo(stylistPath);
 		submit(".btn-danger");
 		assertThat(pageSource()).doesNotContain("Becky");
 	}
+
+	@Test
+	public void stylistIsUpdated() {
+		Stylist myStylist = new Stylist("becky");
+		myStylist.save();
+		String stylistPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
+		goTo(stylistPath);
+		click("a", withText("Update Stylist Info"));
+		fill("#name").with("rebecca");
+		submit(".btn-success");
+		assertThat(pageSource()).contains("rebecca");
+	}
+
+	@Test
+	public void allclientsDisplayDescriptionOnStylistPage() {
+		Stylist myStylist = new Stylist("Leon");
+		myStylist.save();
+		Client firstClient = new Client("fred", myStylist.getId());
+		firstClient.save();
+		Client secondClient = new Client("greg", myStylist.getId());
+		secondClient.save();
+		String stylistPath = String.format("http://localhost:4567/stylists/%d", myStylist.getId());
+		goTo(stylistPath);
+		assertThat(pageSource()).contains("fred");
+		assertThat(pageSource()).contains("greg");
+	}
+
 
 }
