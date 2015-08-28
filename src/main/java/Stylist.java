@@ -34,6 +34,26 @@ public class Stylist {
     }
   }
 
+	public void save() {
+	    try(Connection con = DB.sql2o.open()) {
+	      String sql ="INSERT INTO stylists (name) values (:name)";
+	      this.id = (int) con.createQuery(sql,true)
+	      .addParameter("name", this.name)
+	      .executeUpdate()
+	      .getKey();
+	    }
+	  }
+
+	public static Stylist find(int id ) {
+	    try(Connection con = DB.sql2o.open()) {
+	      String sql ="select * from stylists where id=:id";
+	      Stylist stylist = con.createQuery(sql)
+	      .addParameter("id",id)
+	      .executeAndFetchFirst(Stylist.class);
+	      return stylist;
+	    }
+	  }
+
 
 
 

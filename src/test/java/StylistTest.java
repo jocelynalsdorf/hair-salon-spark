@@ -18,7 +18,19 @@ public class StylistTest {
 	    Stylist secondStylist = new Stylist("Becky");
 	    assertTrue(firstStylist.equals(secondStylist));
 	  }
+	@Test
+	  public void save_savesIntoDatabase_true() {
+	    Stylist newStylist = new Stylist("Becky");
+	    newStylist.save();
+	    assertTrue(Stylist.all().get(0).equals(newStylist));
+	  }
 
-
+	@Test
+	  public void find_findsStylistInDatabase_true() {
+	    Stylist myStylist = new Stylist("Becky");
+	    myStylist.save();
+	    Stylist savedStylist = Stylist.find(myStylist.getId());
+	    assertTrue(myStylist.equals(savedStylist));
+	  }
 
  }//end of testclass
