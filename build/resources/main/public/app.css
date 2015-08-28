@@ -1,0 +1,43 @@
+.home-link {
+	font-size: 30px;
+	color: green;
+}
+
+.edit-link {
+	font-size: 25px;	
+}
+body {
+	font-size: 17px;
+
+}
+h1 {
+	font-family: 'Pacifico', cursive;
+	text-align: center;
+	padding-bottom: 10px;
+	font-size: 50px;
+	padding-top: 10px;
+
+}
+
+h2 {
+	font-size: 33px;
+	font-family: 'Pacifico', cursive;
+	padding-bottom: 9px;
+	margin-top:10px;
+}
+
+h3 {
+	font-family: 'Pacifico', cursive;
+	margin-top: 11px;
+	margin-bottom: 15px;
+	font-size: 28px;
+}
+
+span.edit-link {
+	padding-top: 3px;
+	display: inline-block;
+}
+span.client-name {
+	padding-top:2px;
+	padding-bottom: 3px;
+}

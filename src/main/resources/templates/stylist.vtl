@@ -1,30 +1,30 @@
-<h1>ADMIN: Information on $stylist.getName()</h1
+<div class="row">
+<h1>ADMIN: Information on $stylist.getName()</h1>
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<div class="well">
+			<h3>Manage clients for $stylist.getName():</h3>
 
-<h3>Manage clients for $stylist.getName():</h3>
+			<ol>
+			#foreach ($client in $stylist.getClients())
+			  <li><span class="client-name">$client.getDescription()</span></li>
+			  <form action="/$stylist.getId()/clients/$client.getId()/delete" method="post">
+			    <button type="submit" class="btn btn-danger $client.getDescription()">DELETE</button>
+			  </form>
+			  <span class="edit-link"><a href="/$stylist.getId()/clients/$client.getId()/update">EDIT</a></span>
+			#end
+			</ol>
+		</div>
+		<div class="well">
+			<h3>Manage $stylist.getName():</h3>
 
-<ol>
-#foreach ($client in $stylist.getClients())
-  <li>$client.getDescription()</li>
-  <form action="/$stylist.getId()/clients/$client.getId()/delete" method="post">
-    <button type="submit" class="btn btn-danger $client.getDescription()">DELETE</button>
-  </form>
+			<form action="/stylists/$stylist.getId()/delete" method="post">
+			  <button type="submit" class="btn btn-danger">Delete Stylist</button>
+			</form>
 
-  <a href="/$stylist.getId()/clients/$client.getId()/update">EDIT</a>
-#end
-</ol>
-
-
-<h3>Manage $stylist.getName():</h3>
-
-<form action="/stylists/$stylist.getId()/delete" method="post">
-  <button type="submit" class="btn btn-danger">Delete Stylist</button>
-</form>
-
-
-<a href="/stylists/$stylist.getId()/update">Update Stylist Info</a>
-
-
-<a href="/">Home</a><br>
-
-
-
+			<span class="edit-link"><a href="/stylists/$stylist.getId()/update">Update Stylist Info</a></span>
+		</div>
+			<span class="home-link"><a href="/">Home</a><span>
+	</div>
+	<div class="col-md-2"></div>
+</div>

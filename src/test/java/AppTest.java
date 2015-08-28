@@ -115,4 +115,5 @@ public class AppTest extends FluentTest{
 		click("a", withText("mable"));
 		assertThat(pageSource()).contains("tony");
 	}
+	
 }

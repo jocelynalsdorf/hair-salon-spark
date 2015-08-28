@@ -1,49 +1,50 @@
-<h1>Hair Salon</h1>
+<div class="row">
+	<h1>Hair Salon</h1>
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
 
+		<div class="well">
+		 <h2>Add a Stylist:</h2>
+			<form action="/stylists" method="post">
+			  <label for="name">Stylist name</label>
+			  <input id="name" name="name" type="text">
+			  <button type="submit" class="btn btn-success submit-name">Submit</button>
+			</form> 
+			<br>
 
- <h2>Add a Stylist:</h2>
+			<h2>All Current Stylists:</h2>
+			#if($stylists)
+		    #foreach($stylist in $stylists)
+		     <p class="clickable"><a href="/stylists/$stylist.getId()">$stylist.getName()</a></p>
+		    #end
+			#else
+			  <p>There are no stylists, yet!</p>
+			#end
+		</div>
 
-<form action="/stylists" method="post">
-  <label for="name">Stylist name</label>
-  <input id="name" name="name" type="text">
-  <button type="submit" class="btn btn-success submit-name">Submit</button>
-</form> 
-<br>
-<br>
+		<div class="well">
+			<h2>Add clients to a stylist</h2>
+			<form action="/clients" method="post">
 
+			  <div class="form-group">
+			    <label for="stylist_id">Select a List</label>
+			    <select id="stylist_id" name="stylist_id" type="text">
+			    #foreach($stylist in $stylists)
+			      <option value="$stylist.getId()">$stylist.getName()</option>
+			    #end
+			    </select>
+			  </div>
+			  <div class="form-group">
+			    <label for="description">Add a Client</label>
+			    <input id="description" name="description" type="text" class="form-control">
+			  </div>
 
-#if($stylists)
-    #foreach($stylist in $stylists)
-     <h3 class="clickable"><a href="/stylists/$stylist.getId()">$stylist.getName()</a></h3>
-    #end
-  #else
-  <p>
-    There are no stylists, yet!
-  </p>
-  #end
+			  <button type="submit" class="btn btn-success btn-client">Submit</button>
+			</form>
 
-
-<!--drop down list of stylists that you can add clients to -->
-<h2>Add clients to a stylist</h2>
-<form action="/clients" method="post">
-
-  <div class="form-group">
-    <label for="stylist_id">Select a List</label>
-    <select id="stylist_id" name="stylist_id" type="text">
-    #foreach($stylist in $stylists)
-      <option value="$stylist.getId()">$stylist.getName()</option>
-    #end
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="description">Add a Client</label>
-    <input id="description" name="description" type="text" class="form-control">
-  </div>
-
-  <button type="submit" class="btn btn-success btn-client">Submit</button>
-</form>
-
-
+		</div>
+	</div>
+	<div class="col-md-2"></div>
+</div>
 
 
