@@ -18,6 +18,7 @@ public class StylistTest {
 	    Stylist secondStylist = new Stylist("Becky");
 	    assertTrue(firstStylist.equals(secondStylist));
 	  }
+	  
 	@Test
 	  public void save_savesIntoDatabase_true() {
 	    Stylist newStylist = new Stylist("Becky");
