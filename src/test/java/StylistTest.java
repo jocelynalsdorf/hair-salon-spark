@@ -48,7 +48,7 @@ public class StylistTest {
 	}
 
 	@Test
-		public void delete_deletesStylistFromDatabase_true() {
+	public void delete_deletesStylistFromDatabase_true() {
 		Stylist myStylist = new Stylist("Becky");
 		myStylist.save();
 		myStylist.delete();
@@ -64,4 +64,4 @@ public class StylistTest {
 		assertTrue(Stylist.all().get(0).getName().equals(name));
 	}
 
- }//end of testclass
+}//end of testclass
