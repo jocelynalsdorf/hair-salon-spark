@@ -21,3 +21,29 @@
     There are no stylists, yet!
   </p>
   #end
+
+
+<!--drop down list of stylists that you can add clients to -->
+<h2>Add clients to a stylist</h2>
+<form action="/clients" method="post">
+
+  <div class="form-group">
+    <label for="stylist_id">Select a List</label>
+    <select id="stylist_id" name="stylist_id" type="text">
+    #foreach($stylist in $stylists)
+      <option value="$stylist.getId()">$stylist.getName()</option>
+    #end
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Add a Client</label>
+    <input id="description" name="description" type="text" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+
+
+

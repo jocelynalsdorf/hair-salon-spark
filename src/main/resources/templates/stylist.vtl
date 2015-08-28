@@ -1,5 +1,17 @@
 <h1>ADMIN: Information on $stylist.getName()</h1
 
+<h3>Manage clients for $stylist.getName():</h3>
+
+<ol>
+#foreach ($client in $stylist.getClients())
+  <li>$client.getDescription()</li>
+  <form action="/$stylist.getId()/clients/$client.getId()/delete" method="post">
+    <button type="submit" class="btn btn-danger $client.getDescription()">DELETE</button>
+  </form>
+
+  <a href="/$stylist.getId()/clients/$client.getId()/update">EDIT</a>
+#end
+</ol>
 
 
 <h3>Manage $stylist.getName():</h3>
