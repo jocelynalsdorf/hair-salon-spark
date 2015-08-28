@@ -49,5 +49,25 @@ public class ClientTest {
 	  assertTrue(myClient.equals(savedClient));
 	}
 
+	@Test
+	public void delete_deletesClientFromDatabase_true() {
+		Stylist myStylist = new Stylist("Becky");
+		myStylist.save();
+		Client myClient = new Client("Ted", 1);
+		myClient.save();
+		myClient.delete();
+		assertEquals(Client.all().size(), 0);
+	}
+
+	@Test
+	public void update_changesClientNameInDatabase_true() {
+		Stylist myStylist = new Stylist("Becy");
+		myStylist.save();
+		Client myClient = new Client("Ted", 1);
+		myClient.save();
+		String description = "Fart";
+		myClient.update(description);
+		assertTrue(Client.all().get(0).getDescription().equals(description));
+	}
 
  }//end of test class
