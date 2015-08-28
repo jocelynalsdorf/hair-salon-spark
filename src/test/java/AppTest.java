@@ -22,4 +22,20 @@ public class AppTest extends FluentTest{
 
   @Rule
   public DatabaseRule database = new DatabaseRule();
+
+	@Test
+	public void rootTest() {
+		goTo("http://localhost:4567/");
+		assertThat(pageSource()).contains("Hair Salon");
+	}
+
+	@Test
+	public void stylistIsDisplayedWhenCreated() {
+		goTo("http://localhost:4567/");
+		fill("#name").with("Becky");
+		submit(".submit-name");
+		assertThat(pageSource()).contains("Becky");
+	}
+
+
 }
