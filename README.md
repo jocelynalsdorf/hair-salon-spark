@@ -17,7 +17,9 @@ JUnit
 ---------
 In PSQL:
 CREATE DATABASE hair_salon;
+
 CREATE TABLE stylists (id serial PRIMARY KEY, name varchar);
+
 CREATE TABLE clients (id serial PRIMARY KEY, description varchar, stylist_id int);
 
 <h2>Copyright</h2>
