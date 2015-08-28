@@ -71,5 +71,16 @@ public class App {
     return new ModelAndView(model, layout);
   }, new VelocityTemplateEngine());
 
+    post("/:stylist_id/clients/:id/delete", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
+      Client client = Client.find(Integer.parseInt(request.params(":id")));
+      client.delete();
+      model.put("stylists", Stylist.all());
+      model.put("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+
   }//end of main
 }//end of app class
