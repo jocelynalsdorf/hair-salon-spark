@@ -1,6 +1,7 @@
 import org.junit.*;
 import static org.junit.Assert.*;
 import org.junit.Rule;
+import java.util.Arrays;
 
 public class StylistTest {
 
@@ -34,18 +35,17 @@ public class StylistTest {
 	    assertTrue(myStylist.equals(savedStylist));
 	  }
 
-
-	// @Test
-	//   public void getClients_retrievesAllClientsFromDatabase_clientsList() {
-	//     Stylist myStylist = new Stylist("Banking");
-	//     myStylist.save();
-	//     Client firstClient = new Client("steal money", myStylist.getId());
-	//     firstClient.save();
-	//     Client secondClient = new Client("lots of money", myStylist.getId());
-	//     secondClient.save();
-	//     Client[] clients = new Client[] { firstClient, secondClient };
-	//     assertTrue(myStylist.getClients().containsAll(Arrays.asList(clients)));
-	//   }
+	@Test
+	  public void getClients_retrievesAllClientsFromDatabase_clientsList() {
+	    Stylist myStylist = new Stylist("Banking");
+	    myStylist.save();
+	    Client firstClient = new Client("steal money", myStylist.getId());
+	    firstClient.save();
+	    Client secondClient = new Client("lots of money", myStylist.getId());
+	    secondClient.save();
+	    Client[] clients = new Client[] { firstClient, secondClient };
+	    assertTrue(myStylist.getClients().containsAll(Arrays.asList(clients)));
+	  }
 
 	@Test
 	  public void delete_deletesStylistFromDatabase_true() {

@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Arrays;
 import org.sql2o.*;
 
 public class Stylist {
@@ -53,14 +54,15 @@ public class Stylist {
 	      return stylist;
 	    }
 	  }
-	// public List<Client> getClients() {
-	//     try(Connection con = DB.sql2o.open()) {
-	//       String sql = "SELECT * FROM clients where stylist_id=:id";
-	//       return con.createQuery(sql)
-	//        .addParameter("id", this.id)
-	//        .executeAndFetch(Client.class);
-	//     }
-	//   }
+
+	public List<Client> getClients() {
+	    try(Connection con = DB.sql2o.open()) {
+	      String sql = "SELECT * FROM clients where stylist_id=:id";
+	      return con.createQuery(sql)
+	       .addParameter("id", this.id)
+	       .executeAndFetch(Client.class);
+	    }
+	  }
 
   public void delete() {
     try(Connection con = DB.sql2o.open()) {
