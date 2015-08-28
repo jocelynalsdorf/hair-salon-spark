@@ -71,16 +71,36 @@ public class App {
     return new ModelAndView(model, layout);
   }, new VelocityTemplateEngine());
 
-    post("/:stylist_id/clients/:id/delete", (request, response) -> {
-      HashMap<String, Object> model = new HashMap<String, Object>();
-      Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
-      Client client = Client.find(Integer.parseInt(request.params(":id")));
-      client.delete();
-      model.put("stylists", Stylist.all());
-      model.put("template", "templates/index.vtl");
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
+  post("/:stylist_id/clients/:id/delete", (request, response) -> {
+    HashMap<String, Object> model = new HashMap<String, Object>();
+    Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
+    Client client = Client.find(Integer.parseInt(request.params(":id")));
+    client.delete();
+    model.put("stylists", Stylist.all());
+    model.put("template", "templates/index.vtl");
+    return new ModelAndView(model, layout);
+  }, new VelocityTemplateEngine());
 
+  get("/:stylist_id/clients/:id/update", (request, response) -> {
+    HashMap<String, Object> model = new HashMap<String, Object>();
+    Stylist stylist=Stylist.find(Integer.parseInt(request.params(":stylist_id")));
+    Client client = Client.find(Integer.parseInt(request.params(":id"))); //?
+    model.put("stylist", stylist);
+    model.put("client", client); 
+    model.put("template", "templates/update-client-form.vtl");
+    return new ModelAndView(model, layout);
+  }, new VelocityTemplateEngine());
+
+
+  post("/:stylist_id/clients/:id/update", (request, response) -> {
+    HashMap<String, Object> model = new HashMap<String, Object>();
+    Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
+    Client client = Client.find(Integer.parseInt(request.params(":id")));
+    String description = request.queryParams("description");
+    client.update(description);
+    response.redirect("/");
+  return null;
+  });
 
   }//end of main
 }//end of app class
