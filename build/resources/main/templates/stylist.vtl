@@ -1,30 +1,31 @@
 <div class="row">
-<h1>ADMIN: Information on $stylist.getName()</h1>
-	<div class="col-md-2"></div>
-	<div class="col-md-8">
-		<div class="well">
-			<h3>Manage clients for $stylist.getName():</h3>
+  <h1>ADMIN: Information on $stylist.getName()</h1>
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="well">
+      <h3>Manage clients for $stylist.getName():</h3>
 
-			<ol>
-			#foreach ($client in $stylist.getClients())
-			  <li><span class="client-name">$client.getDescription()</span></li>
-			  <form action="/$stylist.getId()/clients/$client.getId()/delete" method="post">
-			    <button type="submit" class="btn btn-danger $client.getDescription()">Delete Client</button>
-			  </form>
-			  <span class="edit-link"><a href="/$stylist.getId()/clients/$client.getId()/update">Edit Client</a></span>
-			#end
-			</ol>
-		</div>
-		<div class="well">
-			<h3>Manage $stylist.getName():</h3>
+      <ol>
+        #foreach ($client in $stylist.getClients())
+        <li><span class="client-name">$client.getDescription()</span></li>
+          <form action="/$stylist.getId()/clients/$client.getId()/delete" method="post">
+            <button type="submit" class="btn btn-danger $client.getDescription()">Delete Client</button>
+          </form>
+        <span class="edit-link"><a href="/$stylist.getId()/clients/$client.getId()/update">Edit Client</a></span>
+       #end
+      </ol>
+    </div>
 
-			<form action="/stylists/$stylist.getId()/delete" method="post">
-			  <button type="submit" class="btn btn-danger">Delete Stylist</button>
-			</form>
+  <div class="well">
+    <h3>Manage $stylist.getName():</h3>
 
-			<span class="edit-link"><a href="/stylists/$stylist.getId()/update">Update Stylist Info</a></span>
-		</div>
-			<span class="home-link"><a href="/">Home</a><span>
-	</div>
-	<div class="col-md-2"></div>
+    <form action="/stylists/$stylist.getId()/delete" method="post">
+      <button type="submit" class="btn btn-danger">Delete Stylist</button>
+    </form>
+
+    <span class="edit-link"><a href="/stylists/$stylist.getId()/update">Update Stylist Info</a></span>
+  </div>
+  <span class="home-link"><a href="/">Home</a><span>
+  </div>
+  <div class="col-md-2"></div>
 </div>
